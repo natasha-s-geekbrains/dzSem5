@@ -35,7 +35,7 @@ void PrintArray(int[] array)
     Console.WriteLine();
 }
 
-void ShowResult(int[]array, int newMin, int newMax)
+void ShowElementsQty(int[]array, int newMin, int newMax)
 {
     int count = 0;
     foreach(int el in array)
@@ -52,11 +52,10 @@ int arrSize = 123;
 int minValue = GetNum("Введите значение нижней границы массива: ");
 int maxValue = GetNum("Введите значение верхней границы массива: ");
 
-//Console.Write($"{arrSize}, {minValue}, {maxValue}");
 int[] arr = GetArray(arrSize, minValue, maxValue);
 PrintArray(arr);
 
 int newMin = 10;
 int newMax = 99;
 
-ShowResult(arr, newMin, newMax);
+ShowElementsQty(arr, newMin, newMax);

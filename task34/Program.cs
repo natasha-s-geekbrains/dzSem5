@@ -11,26 +11,22 @@ int GetNum(string message)
     return int.Parse(Console.ReadLine()!);
 }
 
-
 int[] FillArray(int size, int minValue, int maxValue)
 {
     int[] array = new int[size];
     for (int i = 0; i < array.Length; i++)
     {
-        array[i] = new Random().Next(minValue, maxValue);
+        array[i] = new Random().Next(minValue, maxValue + 1);
     }
     return array;
 }
 
-void EvenNumQty(int[] array)
+void EvenNumbersQty(int[] array)
 {
     int count = 0;
-    foreach(int el in array)
+    foreach (int el in array)
     {
-        if(el % 2 == 0)
-        {
-            count++;
-        }
+        if (el % 2 == 0) { count++; }
     }
     Console.Write($"Количество четных чисел в массиве = {count}.");
 }
@@ -42,4 +38,4 @@ int maxValue = 999;
 int[] arr = FillArray(size, minValue, maxValue);
 Console.WriteLine(string.Join(" ", arr));
 
-EvenNumQty(arr);
+EvenNumbersQty(arr);

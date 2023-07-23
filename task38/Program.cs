@@ -21,7 +21,7 @@ double[] FillArray(int size)
     return array;
 }
 
-void GetDiff(double[] array)
+void GetDifference(double[] array)
 {
     double minValue = array[0];
     double maxValue = array[0];
@@ -36,8 +36,9 @@ void GetDiff(double[] array)
 }
 
 int arrSize = GetNum("Введите длину массива: ");
+
 double[] arr = FillArray(arrSize);
 Console.Write(string.Join(" | ", arr));
 Console.WriteLine();
 
-GetDiff(arr);
+GetDifference(arr);

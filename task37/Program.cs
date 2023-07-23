@@ -15,7 +15,7 @@ int[] FillArray(int size, int minValue, int maxValue)
     int[] array = new int[size];
     for (int i = 0; i < size; i++)
     {
-        array[i] = new Random().Next(minValue, maxValue);
+        array[i] = new Random().Next(minValue, maxValue + 1);
     }
     return array;
 }
@@ -31,9 +31,9 @@ void PrintArray(int[] array)
     Console.WriteLine();
 }
 
-int[] ModifyArray(int[] array)
+int GetNewArraySize(int[] array)
 {
-    int newArrSize = 0;
+    int newArrSize;
     if (array.Length % 2 == 0)
     {
         newArrSize = array.Length / 2;
@@ -42,21 +42,26 @@ int[] ModifyArray(int[] array)
     {
         newArrSize = array.Length / 2 + 1;
     }
-    int[] resultArr = new int[newArrSize];
+    return newArrSize;
+}
+
+int[] ModifyArray(int[] array, int newArraySize)
+{
+    int[] resultArr = new int[newArraySize];
 
     if (array.Length % 2 == 0)
     {
-        for (int j = 0; j < newArrSize; j++)
+        for (int j = 0; j < newArraySize; j++)
         {
             resultArr[j] = array[j] * array[array.Length - 1 - j];
         }
     }
     else
     {
-        for (int j = 0; j < newArrSize; j++)
+        for (int j = 0; j < newArraySize; j++)
         {
             resultArr[j] = array[j] * array[array.Length - 1 - j];
-            resultArr[newArrSize - 1] = array[array.Length / 2];
+            resultArr[newArraySize - 1] = array[array.Length / 2];
         }
     }
     return resultArr;
@@ -67,9 +72,10 @@ int arrMinValue = GetNum("Введите значение нижней гран�
 int arrMaxValue = GetNum("Введите значение верхней границы массива: ");
 
 int[] arr = FillArray(arrSize, arrMinValue, arrMaxValue);
-
 PrintArray(arr);
 
-int[] resultArray = ModifyArray(arr);
+int newArraySize = GetNewArraySize(arr);
+
+int[] resultArray = ModifyArray(arr, newArraySize);
 PrintArray(resultArray);
 

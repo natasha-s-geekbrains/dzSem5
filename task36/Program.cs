@@ -16,7 +16,7 @@ int[] FillArray(int size, int minValue, int maxValue)
     int[] array = new int[size];
     for (int i = 0; i < array.Length; i++)
     {
-        array[i] = new Random().Next(minValue, maxValue);
+        array[i] = new Random().Next(minValue, maxValue+1);
     }
     return array;
 }
